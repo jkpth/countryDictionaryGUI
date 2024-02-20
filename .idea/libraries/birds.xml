@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="birds">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/assignment/birds.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
