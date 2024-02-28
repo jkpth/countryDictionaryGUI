@@ -154,11 +154,29 @@ public class BirdsController implements Initializable {
     }
 
     public void first() {
-        // Write this method
+        try{
+            bird = database.smallest();
+            if(bird != null){
+                showBird();
+            } else {
+                System.out.println("The dictionary is empty.");
+            }
+        } catch (DictionaryException e){
+            e.printStackTrace();
+        }
     }
 
     public void last() {
-        // Write this method
+        try{
+            bird = database.largest();
+            if(bird != null){
+                showBird();
+            } else {
+                System.out.println("The dictionary is empty.");
+            }
+        } catch (DictionaryException e){
+            e.printStackTrace();
+        }
     }
 
     public void next() {
@@ -206,6 +224,7 @@ public class BirdsController implements Initializable {
                         break;
                     default:
                         description = data;
+                        System.out.println("Inserting BirdRecord with DataKey: Name = " + birdName + ", Size = " + size);
                         database.insert(new BirdRecord(new DataKey(birdName, size), description, birdName + ".mp3", birdName + ".jpg"));
                         break;
                 }

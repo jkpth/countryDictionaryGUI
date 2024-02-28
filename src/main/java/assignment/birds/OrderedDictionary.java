@@ -56,6 +56,41 @@ public class OrderedDictionary implements OrderedDictionaryADT {
     @Override
     public void insert(BirdRecord r) throws DictionaryException {
         // Write this method
+
+        if(root.isEmpty()){
+            root = new Node(r); //If the tree is empty, the new record becomes the root
+        } else {
+            insertRec(root, r);
+        }
+    }
+
+    public void insertRec(Node current, BirdRecord r) throws DictionaryException {
+
+        DataKey newKey = r.getDataKey();
+        DataKey currentKey = current.getData().getDataKey();
+
+        //Compare the new record's key with the current node's key
+        int comparison = newKey.compareTo(currentKey);
+        if(comparison < 0){
+
+            //New record goes in left subtree
+            if(!current.hasLeftChild()){
+
+                current.setLeftChild(new Node(r));
+            } else {
+                insertRec(current.getLeftChild(), r);
+            }
+        } else if(comparison > 0){
+
+            //New record goes in right subtree
+            if(!current.hasRightChild()){
+                current.setRightChild(new Node(r));
+            } else {
+                insertRec(current.getRightChild(), r);
+            }
+        } else {
+            throw new DictionaryException("A record with the same key already exists.");
+        }
     }
 
     /**
@@ -109,8 +144,15 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord smallest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if(root.isEmpty() || root == null){
+            return null; //Dictionary is empty
+        }
+        //Navigate to the leftmost node
+        Node current = root;
+        while(current.getLeftChild() != null){
+            current = current.getLeftChild();
+        }
+        return current.getData();
     }
 
     /*
@@ -119,8 +161,16 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord largest() throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        if(root.isEmpty() || root == null){
+            return null; //Dictionary is empty
+        }
+
+        //Navigate to the rightmost node
+        Node current = root;
+        while(current.getRightChild() != null){
+            current = current.getRightChild();
+        }
+        return current.getData();
     }
       
     /* Returns true if the dictionary is empty, and true otherwise. */
