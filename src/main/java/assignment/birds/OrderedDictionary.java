@@ -103,6 +103,49 @@ public class OrderedDictionary implements OrderedDictionaryADT {
     @Override
     public void remove(DataKey k) throws DictionaryException {
         // Write this method
+        root = removeRec(root, k);
+    }
+    
+    private Node removeRec(Node current, DataKey k) throws DictionaryException {
+        if (current == null) {
+            throw new DictionaryException("No record found with the given key to remove.");
+        }
+    
+        int comparison = k.compareTo(current.getData().getDataKey());
+        if (comparison < 0) {
+            Node newLeftChild = removeRec(current.getLeftChild(), k);
+            current.setLeftChild(newLeftChild);
+        } else if (comparison > 0) {
+            Node newRightChild = removeRec(current.getRightChild(), k);
+            current.setRightChild(newRightChild);
+        } else {
+            // Node to be deleted is found.
+            if (!current.hasLeftChild() && !current.hasRightChild()) {
+                // Case 1: No children
+                return null;
+            } else if (!current.hasLeftChild()) {
+                // Case 2: One child (right)
+                return current.getRightChild();
+            } else if (!current.hasRightChild()) {
+                // Case 2: One child (left)
+                return current.getLeftChild();
+            } else {
+                // Case 3: Two children
+                // Find smallest node in the right subtree
+                Node smallestNode = findSmallest(current.getRightChild());
+                current.setData(smallestNode.getData());
+                Node newRightChild = removeRec(current.getRightChild(), smallestNode.getData().getDataKey());
+                current.setRightChild(newRightChild);
+            }
+        }
+        return current;
+    }
+
+    private Node findSmallest(Node root) {
+        while (root.getLeftChild() != null) {
+            root = root.getLeftChild();
+        }
+        return root;
     }
 
     /**
