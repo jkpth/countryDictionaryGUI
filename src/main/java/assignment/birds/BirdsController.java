@@ -139,14 +139,23 @@ public class BirdsController implements Initializable {
 
     public void getSize() {
         switch (this.size.getValue().toString()) {
-            case "Small":
+            case "Africa":
                 this.birdSize = 1;
                 break;
-            case "Medium":
+            case "Asia":
                 this.birdSize = 2;
                 break;
-            case "Large":
+            case "Europe":
                 this.birdSize = 3;
+                break;
+                case "North America":
+                this.birdSize = 4;
+                break;
+            case "South America":
+                this.birdSize = 5;
+                break;
+            case "Oceania":
+                this.birdSize = 6;
                 break;
             default:
                 break;
@@ -240,7 +249,7 @@ public class BirdsController implements Initializable {
             String birdName = "";
             String description;
             int size = 0;
-            input = new Scanner(new File("BirdsDatabase.txt"));
+            input = new Scanner(new File("CountriesDatabase.txt"));
             while (input.hasNext()) // read until  end of file
             {
                 String data = input.nextLine();
@@ -273,9 +282,9 @@ public class BirdsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         database = new OrderedDictionary();
         size.setItems(FXCollections.observableArrayList(
-                "Small", "Medium", "Large"
-        ));
-        size.setValue("Small");
+            "Africa", "Asia", "Europe", "North America", "South America",
+             "Oceania"));
+        size.setValue("Africa");
     }
 
 }

@@ -1,0 +1,67 @@
+4
+United States
+A country of 50 states covering a vast part of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. 
+
+5
+Ecuador
+Located on South America's west coast, Ecuador is known for its diverse landscape encompassing the Amazon jungle, Andean highlands, and the wildlife-rich Galápagos Islands.
+
+1
+Uganda
+Located in East Africa, Uganda is known for its diverse landscapes that encompass the snow-capped Rwenzori Mountains and immense Lake Victoria. 
+
+1
+Egypt
+Located in Northeast Africa, Egypt is famed for its ancient civilization and some of the world’s most famous monuments, including the Giza pyramids, the Great Sphinx, and the ancient temples of Luxor dating back thousands of years.
+
+2
+Japan
+An island nation in East Asia, located in the northwest Pacific Ocean. Known for its dense cities, imperial palaces, mountainous national parks, and thousands of shrines and temples.
+
+3
+France
+Located in Western Europe, France is renowned for its medieval cities, alpine villages, and Mediterranean beaches. Paris, its capital, is famous for its fashion houses, classical art museums including the Louvre, and monuments like the Eiffel Tower.
+
+5
+Brazil
+The largest country in both South America and Latin America. Brazil is famous for its Amazon rainforest, its vibrant festivals including Rio de Janeiro's Carnival, and its bustling cities like São Paulo and Rio.
+
+6
+Australia
+The largest country in Oceania, known for its Sydney Opera House, the Great Barrier Reef, the vast Outback (interior desert wilderness), and unique animal species like kangaroos and platypuses.
+
+1
+Nigeria
+Located in West Africa, Nigeria is known for its wildlife reserves, including Yankari National Park, and landmarks such as Zuma Rock. Lagos, the massive metropolitan capital, is known for its music scene and bustling markets.
+
+2
+China
+A vast East Asian country with a landscape encompassing grassland, desert, mountains, lakes, rivers, and more than 14,000km of coastline. Capital Beijing mixes modern architecture with historic sites such as the Forbidden City palace complex and Tiananmen Square.
+
+3
+Germany
+Located in central-western Europe, it includes 16 constituent states, has the largest economy in Europe, and is known for its history, culture, and the Oktoberfest beer celebration in Munich.
+
+4
+Canada
+The second-largest country by total area, spanning from the Atlantic to the Pacific and northward into the Arctic Ocean. Known for its vast landscapes, multicultural cities like Toronto and Vancouver, and natural wonders like Niagara Falls.
+
+5
+Argentina
+Located in the southern half of South America, known for its Pampas grassland, beef production, and Patagonia region in the south. Buenos Aires, the capital, is known for tango, steak, and football.
+
+6
+New Zealand
+An island country in the southwestern Pacific Ocean, consisting of two main landmasses—the North Island, and the South Island—and around 600 smaller islands. Known for its indigenous Maori culture and picturesque landscapes.
+
+2
+India
+Located in South Asia, known for its diverse geography, history, and cultures. India is home to the ancient Indus Valley Civilization, and a plurality of languages and cultures have been established over millennia.
+
+3
+Italy
+A European country with a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine. Its capital, Rome, is home to the Vatican as well as landmark art and ancient ruins.
+
+4
+Mexico
+A country between the U.S. and Central America that's known for its Pacific and Gulf of Mexico beaches and its diverse landscape of mountains, deserts, and rainforests. Famous for its cuisine, culture and rich history.
