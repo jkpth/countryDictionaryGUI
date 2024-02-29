@@ -116,8 +116,19 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord successor(DataKey k) throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        Node successor = null;
+        Node current = root;
+        while(current != null){
+            if(k.compareTo(current.getData().getDataKey())<0){
+                //Current key is larger than k; go left and find a smaller key
+                successor = current;
+                current = current.getLeftChild();
+            }else{
+                //Current key is smaller than or equal to k; go right and find a larger key
+                current = current.getRightChild();
+            }
+        }
+        return successor == null ? null : successor.getData();
     }
 
    
@@ -132,8 +143,19 @@ public class OrderedDictionary implements OrderedDictionaryADT {
      */
     @Override
     public BirdRecord predecessor(DataKey k) throws DictionaryException{
-        // Write this method
-        return null; // change this statement
+        Node predecessor = null;
+        Node current = root;
+        while(current != null){
+            if(k.compareTo(current.getData().getDataKey())>0){
+                //Current key is smaller than k; this is a potential predecessor but there may be a larger one
+                predecessor = current;
+                current = current.getRightChild();
+            }else{
+                //Current key is greater than or equal to k; need to find a smaller key
+                current = current.getLeftChild();
+            }
+        }
+        return predecessor == null ? null : predecessor.getData();
     }
 
     /**

@@ -180,10 +180,39 @@ public class BirdsController implements Initializable {
     }
 
     public void next() {
-        // Write this method;
+        if(bird==null){
+            System.out.println("No current bird to find next for.");
+            return;
+        }
+        try{
+            BirdRecord nextBird = database.successor(bird.getDataKey());
+            if(nextBird != null){
+                bird = nextBird; //Update current bird to next bird
+                showBird(); //Show the bird
+            }else{
+                System.out.println("This is the last bird in the dictionary");
+            }
+        }catch(DictionaryException e){
+            e.printStackTrace(); //Handle the exception
+        }
     }
 
     public void previous() {
+        if(bird == null){
+            System.out.println("No current bird to find previous for.");
+            return;
+        }
+        try{
+            BirdRecord previousBird = database.predecessor(bird.getDataKey());
+            if(previousBird != null){
+                bird = previousBird; //Update current bird to previous bird
+                showBird(); //Show the bird
+            }else{
+                System.out.println("This is the first bird in the dictionary.");
+            }
+        }catch(DictionaryException e){
+            e.printStackTrace(); //Handle the exception
+        }
         // Write this method
     }
 
