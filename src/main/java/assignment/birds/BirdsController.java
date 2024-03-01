@@ -90,7 +90,7 @@ public class BirdsController implements Initializable {
         }
         if (database.isEmpty()) {
             this.BirdPortal.setVisible(false);
-            displayAlert("No more birds in the database to show");
+            displayAlert("No more Countries in the database to show");
         } else {
             if (previousBird != null) {
                 bird = previousBird;
@@ -190,7 +190,7 @@ public class BirdsController implements Initializable {
 
     public void next() {
         if(bird==null){
-            System.out.println("No current bird to find next for.");
+            System.out.println("No current Country to find next for.");
             return;
         }
         try{
@@ -199,7 +199,7 @@ public class BirdsController implements Initializable {
                 bird = nextBird; //Update current bird to next bird
                 showBird(); //Show the bird
             }else{
-                System.out.println("This is the last bird in the dictionary");
+                System.out.println("This is the last Country in the dictionary");
             }
         }catch(DictionaryException e){
             e.printStackTrace(); //Handle the exception
@@ -208,7 +208,7 @@ public class BirdsController implements Initializable {
 
     public void previous() {
         if(bird == null){
-            System.out.println("No current bird to find previous for.");
+            System.out.println("No current Country to find previous for.");
             return;
         }
         try{
@@ -217,7 +217,7 @@ public class BirdsController implements Initializable {
                 bird = previousBird; //Update current bird to previous bird
                 showBird(); //Show the bird
             }else{
-                System.out.println("This is the first bird in the dictionary.");
+                System.out.println("This is the first Country in the dictionary.");
             }
         }catch(DictionaryException e){
             e.printStackTrace(); //Handle the exception
@@ -269,7 +269,7 @@ public class BirdsController implements Initializable {
                 line++;
             }
         } catch (IOException e) {
-            System.out.println("There was an error in reading or opening the file: BirdsDatabase.txt");
+            System.out.println("There was an error in reading or opening the file: CountriesDatabase.txt");
             System.out.println(e.getMessage());
         } catch (DictionaryException ex) {
             Logger.getLogger(BirdsController.class.getName()).log(Level.SEVERE, null, ex);
