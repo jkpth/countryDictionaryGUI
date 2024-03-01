@@ -1,4 +1,4 @@
-package assignment.birds;
+package assignment.countries;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +11,15 @@ import javafx.stage.Stage;
  *
  * @author Ouda
  */
-public class Birds extends Application {
+public class Countries extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("birds-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("countries-view.fxml"));
 
         Scene scene = new Scene(root);
 
-        stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/flags/globe-icon.png"));
+        stage.getIcons().add(new Image("file:src/main/resources/assignment/countries/flags/globe-icon.png"));
         stage.setTitle("Countries Portal");
 
         stage.setScene(scene);

@@ -1,4 +1,4 @@
-package assignment.birds;
+package assignment.countries;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -27,14 +27,14 @@ import java.util.logging.Logger;
  *
  * @author Ouda
  */
-public class BirdsController implements Initializable {
+public class CountriesController implements Initializable {
 
     @FXML
     private MenuBar mainMenu;
     @FXML
     private ImageView image;
     @FXML
-    private BorderPane BirdPortal;
+    private BorderPane CountryPortal;
     @FXML
     private Label title;
     @FXML
@@ -50,8 +50,8 @@ public class BirdsController implements Initializable {
     Media media;
     MediaPlayer player;
     OrderedDictionary database = null;
-    BirdRecord bird = null;
-    int birdSize = 1;
+    CountryRecord country = null;
+    int countrySize = 1;
 
     @FXML
     public void exit() {
@@ -60,59 +60,59 @@ public class BirdsController implements Initializable {
     }
 
     public void find() {
-        DataKey key = new DataKey(this.name.getText(), birdSize);
+        DataKey key = new DataKey(this.name.getText(), countrySize);
         try {
-            bird = database.find(key);
-            showBird();
+            country = database.find(key);
+            showCountry();
         } catch (DictionaryException ex) {
             displayAlert(ex.getMessage());
         }
     }
 
     public void delete() {
-        BirdRecord previousBird = null;
+        CountryRecord previousCountry = null;
         try {
-            previousBird = database.predecessor(bird.getDataKey());
+            previousCountry = database.predecessor(country.getDataKey());
         } catch (DictionaryException ex) {
 
         }
-        BirdRecord nextBird = null;
+        CountryRecord nextCountry = null;
         try {
-            nextBird = database.successor(bird.getDataKey());
+            nextCountry = database.successor(country.getDataKey());
         } catch (DictionaryException ex) {
 
         }
-        DataKey key = bird.getDataKey();
+        DataKey key = country.getDataKey();
         try {
             database.remove(key);
         } catch (DictionaryException ex) {
             System.out.println("Error in delete "+ ex);
         }
         if (database.isEmpty()) {
-            this.BirdPortal.setVisible(false);
+            this.CountryPortal.setVisible(false);
             displayAlert("No more Countries in the database to show");
         } else {
-            if (previousBird != null) {
-                bird = previousBird;
-                showBird();
-            } else if (nextBird != null) {
-                bird = nextBird;
-                showBird();
+            if (previousCountry != null) {
+                country = previousCountry;
+                showCountry();
+            } else if (nextCountry != null) {
+                country = nextCountry;
+                showCountry();
             }
         }
     }
 
-    private void showBird() {
+    private void showCountry() {
         play.setDisable(false);
         puase.setDisable(true);
         if (player != null) {
             player.stop();
         }
-        String img = bird.getImage();
-        Image birdImage = new Image("file:src/main/resources/assignment/birds/flags/" + img);
-        image.setImage(birdImage);
-        title.setText(bird.getDataKey().getBirdName());
-        about.setText(bird.getAbout());
+        String img = country.getImage();
+        Image countryImage = new Image("file:src/main/resources/assignment/countries/flags/" + img);
+        image.setImage(countryImage);
+        title.setText(country.getDataKey().getCountryName());
+        about.setText(country.getAbout());
     }
 
     private void displayAlert(String msg) {
@@ -126,7 +126,7 @@ public class BirdsController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
 
-            stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/flags/globe.png"));
+            stage.getIcons().add(new Image("file:src/main/resources/assignment/countries/flags/globe.png"));
             stage.setTitle("Dictionary Exception");
             controller.setAlertText(msg);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -140,22 +140,22 @@ public class BirdsController implements Initializable {
     public void getSize() {
         switch (this.size.getValue().toString()) {
             case "Africa":
-                this.birdSize = 1;
+                this.countrySize = 1;
                 break;
             case "Asia":
-                this.birdSize = 2;
+                this.countrySize = 2;
                 break;
             case "Europe":
-                this.birdSize = 3;
+                this.countrySize = 3;
                 break;
                 case "North America":
-                this.birdSize = 4;
+                this.countrySize = 4;
                 break;
             case "South America":
-                this.birdSize = 5;
+                this.countrySize = 5;
                 break;
             case "Oceania":
-                this.birdSize = 6;
+                this.countrySize = 6;
                 break;
             default:
                 break;
@@ -164,9 +164,9 @@ public class BirdsController implements Initializable {
 
     public void first() {
         try{
-            bird = database.smallest();
-            if(bird != null){
-                showBird();
+            country = database.smallest();
+            if(country != null){
+                showCountry();
             } else {
                 System.out.println("The dictionary is empty.");
             }
@@ -177,9 +177,9 @@ public class BirdsController implements Initializable {
 
     public void last() {
         try{
-            bird = database.largest();
-            if(bird != null){
-                showBird();
+            country = database.largest();
+            if(country != null){
+                showCountry();
             } else {
                 System.out.println("The dictionary is empty.");
             }
@@ -189,15 +189,15 @@ public class BirdsController implements Initializable {
     }
 
     public void next() {
-        if(bird==null){
+        if(country==null){
             System.out.println("No current Country to find next for.");
             return;
         }
         try{
-            BirdRecord nextBird = database.successor(bird.getDataKey());
-            if(nextBird != null){
-                bird = nextBird; //Update current bird to next bird
-                showBird(); //Show the bird
+            CountryRecord nextCountry = database.successor(country.getDataKey());
+            if(nextCountry != null){
+                country = nextCountry; //Update current country to next country
+                showCountry(); //Show the country
             }else{
                 System.out.println("This is the last Country in the dictionary");
             }
@@ -207,15 +207,15 @@ public class BirdsController implements Initializable {
     }
 
     public void previous() {
-        if(bird == null){
+        if(country == null){
             System.out.println("No current Country to find previous for.");
             return;
         }
         try{
-            BirdRecord previousBird = database.predecessor(bird.getDataKey());
-            if(previousBird != null){
-                bird = previousBird; //Update current bird to previous bird
-                showBird(); //Show the bird
+            CountryRecord previousCountry = database.predecessor(country.getDataKey());
+            if(previousCountry != null){
+                country = previousCountry; //Update current country to previous country
+                showCountry(); //Show the country
             }else{
                 System.out.println("This is the first Country in the dictionary.");
             }
@@ -226,7 +226,7 @@ public class BirdsController implements Initializable {
     }
 
     public void play() {
-        String filename = "src/main/resources/assignment/birds/anthems/" + bird.getSound();
+        String filename = "src/main/resources/assignment/countries/anthems/" + country.getSound();
         media = new Media(new File(filename).toURI().toString());
         player = new MediaPlayer(media);
         play.setDisable(true);
@@ -246,7 +246,7 @@ public class BirdsController implements Initializable {
         Scanner input;
         int line = 0;
         try {
-            String birdName = "";
+            String countryName = "";
             String description;
             int size = 0;
             input = new Scanner(new File("CountriesDatabase.txt"));
@@ -258,12 +258,12 @@ public class BirdsController implements Initializable {
                         size = Integer.parseInt(data);
                         break;
                     case 1:
-                        birdName = data;
+                        countryName = data;
                         break;
                     default:
                         description = data;
-                        System.out.println("Inserting BirdRecord with DataKey: Name = " + birdName + ", Size = " + size);
-                        database.insert(new BirdRecord(new DataKey(birdName, size), description, birdName + ".mp3", birdName + ".jpg"));
+                        System.out.println("Inserting CountryRecord with DataKey: Name = " + countryName + ", Size = " + size);
+                        database.insert(new CountryRecord(new DataKey(countryName, size), description, countryName + ".mp3", countryName + ".jpg"));
                         break;
                 }
                 line++;
@@ -272,9 +272,9 @@ public class BirdsController implements Initializable {
             System.out.println("There was an error in reading or opening the file: CountriesDatabase.txt");
             System.out.println(e.getMessage());
         } catch (DictionaryException ex) {
-            Logger.getLogger(BirdsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CountriesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.BirdPortal.setVisible(true);
+        this.CountryPortal.setVisible(true);
         this.first();
     }
 
