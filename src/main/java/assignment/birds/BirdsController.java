@@ -109,7 +109,7 @@ public class BirdsController implements Initializable {
             player.stop();
         }
         String img = bird.getImage();
-        Image birdImage = new Image("file:src/main/resources/assignment/birds/images/" + img);
+        Image birdImage = new Image("file:src/main/resources/assignment/birds/flags/" + img);
         image.setImage(birdImage);
         title.setText(bird.getDataKey().getBirdName());
         about.setText(bird.getAbout());
@@ -126,7 +126,7 @@ public class BirdsController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
 
-            stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/images/UMIcon.png"));
+            stage.getIcons().add(new Image("file:src/main/resources/assignment/birds/flags/globe.png"));
             stage.setTitle("Dictionary Exception");
             controller.setAlertText(msg);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -226,7 +226,7 @@ public class BirdsController implements Initializable {
     }
 
     public void play() {
-        String filename = "src/main/resources/assignment/birds/sounds/" + bird.getSound();
+        String filename = "src/main/resources/assignment/birds/anthems/" + bird.getSound();
         media = new Media(new File(filename).toURI().toString());
         player = new MediaPlayer(media);
         play.setDisable(true);

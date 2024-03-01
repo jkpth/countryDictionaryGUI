@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/main/resources/assignment/birds/images/UMBackground.png&quot;); " xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment.birds.BirdsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/main/resources/assignment/birds/flags/globe-bg.png&quot;); " xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment.birds.BirdsController">
     <top>
         <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
             <menus>
@@ -86,18 +86,18 @@
                                 </Button>
                             </children>
                         </HBox>
-                        <HBox prefHeight="354.0" prefWidth="600.0" style="-fx-border-color: black;">
+                        <HBox prefHeight="224.0" prefWidth="600.0" style="-fx-border-color: black;">
                             <VBox.margin>
                                 <Insets left="40.0" right="40.0" />
                             </VBox.margin>
                             <children>
-                                <ImageView fx:id="image" fitHeight="352.0" fitWidth="329.0" pickOnBounds="true">
+                                <ImageView fx:id="image" fitHeight="220.0" fitWidth="329.0" pickOnBounds="true">
                                     <HBox.margin>
                                         <Insets right="70.0" />
                                     </HBox.margin></ImageView>
                                 <Button fx:id="play" mnemonicParsing="false" onAction="#play" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green;" text="Play" textFill="#f8f7f7">
                                     <HBox.margin>
-                                        <Insets left="60.0" top="130.0" />
+                                        <Insets left="60.0" top="70.0" />
                                     </HBox.margin>
                                     <font>
                                         <Font name="System Bold" size="20.0" />
@@ -105,7 +105,7 @@
                                 </Button>
                                 <Button fx:id="puase" mnemonicParsing="false" onAction="#puase" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green;" text="Stop" textFill="#fffdfd">
                                     <HBox.margin>
-                                        <Insets left="50.0" top="130.0" />
+                                        <Insets left="50.0" top="70.0" />
                                     </HBox.margin>
                                     <font>
                                         <Font name="System Bold" size="20.0" />
